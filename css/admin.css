@@ -1,0 +1,329 @@
+/* root */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-image: url(../img/PhilHealth.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(240, 240, 240, 0.7);
+    z-index: -1;
+}
+
+#eye{
+    padding: 11.8px;
+}
+
+.go_back a:hover{
+    color: blue;
+}
+/* root end */
+
+/* body start */
+.main-wrapper{
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+
+.main_container{
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin: 20px 120px 20px 120px;
+    width: 100%;
+    height: 550px;
+    background-color: #fff;
+}
+
+.main_container::before{
+    content: '';
+    right: 60px;
+    position: absolute;
+    display: inline-block;
+    transform: skew(-15deg);
+    box-shadow:  0px 0px 20px black;
+    width: 50%;
+    height: 100%;
+    background-color: #FFD93D;
+    z-index: 1;
+}
+
+.emp_img{
+    width: 700px;
+    height: 100%;
+}
+
+.form-container{
+    position: absolute;
+    right: 0;
+    width: 500px;
+    height: 100%;
+    background-color: #FFD93D;
+    z-index: 1;
+}
+
+.form-container{
+    padding: 0px 40px 0px 40px;
+}
+
+.my_title{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.my_title h1{
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ffff;
+}
+
+.for_container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 20px;
+}
+
+.for_container a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.reg_for_container{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 20px;
+}
+
+.reg_for_container p{
+    padding-right: 8px;
+    
+}
+.reg_for_container a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.go_back{
+    margin-top: 4rem;
+    height: 20px;
+    width: auto;
+}
+.go_back a{
+font-size: 14px;
+color: #fff;
+text-decoration: none;
+}
+
+@media (max-width: 1270px){
+    .main_container::before{
+        right: 90px;
+    }
+}
+@media (max-width: 1210px){
+    .main_container::before{
+        right: 120px;
+    }
+}
+
+@media (max-width: 1150px){
+    .main_container::before{
+        display: none;
+    }
+}
+
+@media (max-width: 1120px){
+    .form-container{
+        width: 450px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 1080px){
+    .main_container{
+        width: 100%;
+        height: 550px;
+
+    }
+}
+
+@media (max-width: 1024px){
+    .form-container{
+        width: 400px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 970px){
+    .main_container{
+        width: 100%;
+        height: 500px;
+    }
+    .go_back{
+        margin-top: 1.5rem;
+    }
+}
+@media (max-width: 914px){
+    .form-container{
+        width: 370px;
+        height: 100%;
+    }
+    .my_title h1{
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+}
+
+@media (max-width: 880px){
+    .emp_img{
+      display: none;
+    }
+    .main_container{
+        width: 370px;
+        height: 480px;
+    }
+    .go_back{
+        margin-top: 1rem;
+    }
+
+}
+
+@media (max-width: 610px){
+    .main_container{
+        margin: 20px 60px 20px 60px;
+    }
+}
+
+@media (max-width: 490px){
+    .main_container{
+        margin: 20px 40px 20px 40px;
+    }
+}
+
+@media (max-width: 456px){
+    .main_container{
+        margin: 20px 20px 20px 20px;
+    }
+}
+
+@media (max-width: 414px){
+    .main_container{
+        margin: 20px 10px 20px 10px;
+    }
+}
+
+@media (max-width: 392px){
+    .form-container{
+        width: 300px;
+        height: 100%;
+    }
+    .main_container{
+        width: 300px;
+        height: 480px;
+
+    }
+    .my_title h1{
+        font-size: 1.2rem;
+        font-weight: 900;
+    }
+    .for_container a{
+        font-size: 14px;
+    }
+    .reg_for_container p, a{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 324px){
+    .form-container{
+        width: 260px;
+        height: 100%;
+    }
+    .main_container{
+        width: 260px;
+        height: 450px;
+    }
+    .my_title{
+        margin-top: 2rem;
+    }
+    .my_title h1{
+        font-size: 1.1rem;
+        font-weight: 900;
+    }
+    .go_back a{
+        font-size: 12px;
+    }
+}
+
+@media (max-width:280px){
+    .form-container{
+        width: 230px;
+        height: 100%;
+    }
+    .main_container{
+        width: 230px;
+        height: 450px;
+    }
+    .for_container a{
+        font-size: 12px;
+    }
+    .reg_for_container p, a{
+        font-size: 12px;
+    }
+    .go_back{
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 250px){
+    .form-container{
+        width: 200px;
+        height: 100%;
+    }
+    .main_container{
+        width: 200px;
+        height: 450px;
+    }
+    .for_container a{
+        font-size: 10px;
+    }
+    .reg_for_container p, a{
+        font-size: 10px;
+    }
+    .go_back{
+        margin-top: 1px;
+    }
+    .go_back a{
+        font-size: 12px;
+    }
+}
