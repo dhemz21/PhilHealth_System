@@ -17,7 +17,7 @@
     </header>
 
     <main class="wrapper">
-        <a href="employee/login.php">
+        <a href="pages/employee_login.php">
             <div class="con-1">
                 <div class="image-logo">
                 <img src="img/logo.png" alt="logo">
@@ -30,7 +30,7 @@
             </div>
             </div>
         </a>
-        <a href="admin/login.php">
+        <a href="pages/admin_login.php">
             <div class="con-2">
                 <div class="image-logo1">
                     <img src="img/logo.png" alt="logo">
