@@ -59,6 +59,30 @@
         </a>
       </li>
 
+           <li class="nav-item">
+          <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-image"></i>
+            <p>
+              Images
+              <i class="fas fa-angle-left right"></i>
+              <span class="badge badge-info right"></span>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href=".?page=add-image" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Upload Image</p>
+              </a>
+            </li>     
+            <li class="nav-item">
+              <a href=".?page=sync-file" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>View Images</p>
+              </a>
+            </li>               
+      </ul>
+
         <!-- <li class="nav-item">
           <a href="#" class="nav-link">
           <i class="nav-icon fas fa-user-tie"></i>

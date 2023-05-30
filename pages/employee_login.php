@@ -13,8 +13,11 @@
     <!-- FontawesomeIcon online -->
     <link rel="stylesheet" href="../vendors/fontawesome-free/css/all.min.css">
 
-
     <script src="../bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SWEETALERT2 -->
+    <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 </head>
 <body>
     <main class="main-wrapper">
@@ -28,13 +31,13 @@
                 </div>
                 <form action="">
                     <div class="mb-3 mt-5">
-                        <label for="email" class="form-label text-white">Email address</label>
-                        <input type="email" class="form-control rounded-0 p-2" required>
+                        <label for="email" class="form-label text-white">Username:</label>
+                        <input type="email" class="form-control rounded-0 p-2" placeholder="Enter your username" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label text-white">Password</label>
+                        <label for="password" class="form-label text-white">Password:</label>
                         <div class="input-group">
-                            <input class="form-control rounded-0 p-2 mb-2" type="password" name="" placeholder="Input password" id="password"  required>
+                            <input class="form-control rounded-0 p-2 mb-2" type="password" name="" placeholder="Enter your password" id="password"  required>
                             <div class="input-group-append">
                                 <span class="input-group-text rounded-0" id="eye" onclick="password_show_hide();">
                                 <i class="fa fa-eye" id="show_eye"></i>
@@ -43,12 +46,12 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 rounded-0">Submit</button>
+                    <button type="submit" class="btn btn-warning text-white fw-bold w-100 rounded-0">LOGIN</button>
                     <div class="for_container">
                         <a href="#">Forgot password ?</a>
                     </div>
                     <div class="reg_for_container"><p>No account?</p>
-                        <a href="#">Register</a>
+                        <a href="employee_confirm.php">Register</a>
                     </div>
                     <div class="go_back">
                     <a href="../index.php"><i class="fas fa-arrow-left"></i> Back to homepage</a>

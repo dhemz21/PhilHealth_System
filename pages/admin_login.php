@@ -56,7 +56,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary w-100 rounded-0">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-success fw-bold w-100 rounded-0">LOGIN</button>
                     <div class="for_container">
                         <a href="admin_forgot.php">Forgot password ?</a>
                     </div>

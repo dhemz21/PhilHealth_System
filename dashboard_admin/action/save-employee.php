@@ -15,14 +15,13 @@ $totalID = $totalID + 1;
 
 if (isset($_POST['submit'])) {
     //Create Variable to catch the data from the form
-    $user = $_POST['username'];
     $firstname = $_POST['firstname'];
     $mname = $_POST['middlename'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
 
     // CHECK IF THE USER ALREADY EXISTS IN THE DATABASE
-    $checkUser = "SELECT * FROM tbl_employee WHERE username='$user' or email='$email'";
+    $checkUser = "SELECT * FROM tbl_employee WHERE email='$email'";
     $result = mysqli_query($conn, $checkUser);
 
     $count = mysqli_num_rows($result);
@@ -31,7 +30,7 @@ if (isset($_POST['submit'])) {
         echo "<script>window.location.href='.?folder=pages/&page=add-employee&error=1';</script>";
     } else {
         //Insert the data to table
-        $sql = "INSERT INTO tbl_employee (username, firstname, middlename, lastname, email, type) VALUES ('$user', '$firstname', '$mname', '$lastname', '$email', 'EMPLOYEE')";
+        $sql = "INSERT INTO tbl_employee (firstname, middlename, lastname, email, type) VALUES ('$firstname', '$mname', '$lastname', '$email', 'EMPLOYEE')";
 
         //Check if insertion
         if (mysqli_query($conn, $sql)) {

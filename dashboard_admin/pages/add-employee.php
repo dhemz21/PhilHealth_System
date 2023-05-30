@@ -40,10 +40,6 @@
                 <form action=".?folder=action/&page=save-employee" method="POST">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="IDnumber" name="username" placeholder="Enter employee username" required>
-                        </div>
-                        <div class="form-group col-md-6">
                             <label for="firstname">First name</label>
                             <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name" required>
                         </div>
@@ -56,7 +52,7 @@
                             <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name" required>
                         </div>
 
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                         </div>

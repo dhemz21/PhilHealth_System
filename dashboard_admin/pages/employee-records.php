@@ -31,7 +31,6 @@ include("library/call_function1.php");
                   $i++;
                 ?>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $getData['username']; ?></td>
                   <td><?php echo $getData['firstname']; ?></td>
                   <td><?php echo $getData['middlename']; ?></td>
                   <td><?php echo $getData['lastname']; ?></td>

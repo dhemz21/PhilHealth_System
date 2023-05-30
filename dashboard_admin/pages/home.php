@@ -42,6 +42,33 @@
                     <a  class="small-box-footer"> <i class="fas fa-check-circle"></i></a>
                  </div>
             </div>
+            <div class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box shadow-sm text-white" id="box2">
+                    <div class="inner">
+                        <h4>Uploaded Images</h4>
+                        <?php
+                         require_once("../database/db_conn.php");
+                          $query = 'SELECT COUNT(*) AS total FROM tbl_images';
+                          $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+                        
+                          $row = mysqli_fetch_assoc($result);
+                          $totalusers = $row['total'];
+
+                          if (empty($totalusers)) {
+                              echo '<h3> 0 </h3> ';
+                          } else {
+                              echo '<h3>' . $totalusers . '</h3> ';
+                          }
+
+                        ?>
+                        <p><strong>Total Images</strong> </p>
+                    </div>
+                    <div class="icon">
+                    <i class="nav-icon fas fa-image"></i> 
+                    </div>
+                    <a href=".?folder=pages/&page=uploaded-images" class="small-box-footer">View Images <i class="fas fa-arrow-circle-right"></i></a>                 </div>
+            </div>
             <!-- ./col -->
         </div>
         <!-- /.row -->

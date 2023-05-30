@@ -44,7 +44,7 @@ session_start();
                         <label for="email" class="form-label text-white">Email address:</label>
                         <input type="email" id="email"  class="form-control rounded-0 p-2" placeholder="Search by email" name="email" required>
                     </div>  
-                    <button type="submit" name="submit" class="btn btn-primary w-100 rounded-0">Submit</button> 
+                    <button type="submit" name="submit" class="btn btn-success w-100 rounded-0">Submit</button> 
                     <div class="col-12 mt-4">
                 <p class="text-start"><a href="admin_login.php" class="text-decoration-none"><i class="fas fa-arrow-left"></i> Go Back</a> </p>
                 </div>   
@@ -61,8 +61,8 @@ session_start();
     <script>
       Swal.fire({
         icon: 'error',
-        title: "Email doesn't exist",
-        text: 'Please check your Information!',
+        title: "Error",
+        text: ' Email not exist, Please check your information!',
       })
     </script>
   <?php

@@ -3,14 +3,13 @@
 require_once('../database/db_conn.php');
 // Posted Data
 $userid = $_POST['employee_id'];
-$user = $_POST['username'];
 $fname = $_POST['firstname'];
 $mname = $_POST['middlename'];
 $lname = $_POST['lastname'];
 $mail = $_POST['email'];
 
 // UPDATING DATA FROM THE TABLE TBL_EMPLOYEE
-$query = "UPDATE tbl_employee SET username='$user', firstname='$fname', middlename='$mname', lastname='$lname', email='$mail' WHERE employee_id = '$userid'";
+$query = "UPDATE tbl_employee SET firstname='$fname', middlename='$mname', lastname='$lname', email='$mail' WHERE employee_id = '$userid'";
 
 if(mysqli_query($conn, $query)){
 

@@ -4,7 +4,6 @@ function call_fields()
   echo "<tr>
 
   <th>#</th>
-          <th>username</th>
           <th>Firstname</th>
           <th>Middlename</th>
           <th>Lastname</th>
