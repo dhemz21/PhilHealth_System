@@ -24,11 +24,11 @@
                 <h3 class="card-title"><strong>Upload Employee csv</strong></h3>
             </div>
             <div class="card-body">
-                <form action=".?folder=action/&page=save-csv" method="POST" enctype="multipart/form-data">
+                <form action=".?folder=action/&page=upload_image" method="POST" enctype="multipart/form-data">
                     
                     <div class="image mb-2">
                         <label for="image">File:</label>
-                        <input type="file" name="file" id="image" accept=".jpg, .jpeg, .png" required>
+                        <input type="file" name="image[]" id="image" accept="image/*" multiple required>
                     </div>
                     <button type="submit" class="btn text-white" id="save">Save</button>
                     <button type="reset" class="btn btn-secondary" onclick="window.location.href='index.php'">Close</button>
@@ -41,6 +41,35 @@
         </div>
     </div>
 </body>
+<?php
+    if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'successful') {
+    ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Added',
+                text: ' You successully added an image!'
+            })
+        </script>
+    <?php
+        unset($_SESSION['validate']);
+    }
+    ?>
+
+<?php
+    if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'error') {
+    ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: ' Error uploading the file!'
+            })
+        </script>
+    <?php
+        unset($_SESSION['validate']);
+    }
+    ?>
 
 </html>
 </div>

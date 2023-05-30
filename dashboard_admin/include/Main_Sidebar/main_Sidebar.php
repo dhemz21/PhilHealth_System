@@ -76,7 +76,7 @@
               </a>
             </li>     
             <li class="nav-item">
-              <a href=".?page=sync-file" class="nav-link">
+              <a href=".?page=view-image" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>View Images</p>
               </a>
