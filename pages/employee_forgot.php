@@ -12,7 +12,7 @@ session_start();
     <title>PhilHealth System</title>
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/employee.css">
 
     <!-- FontawesomeIcon online -->
     <link rel="stylesheet" href="../vendors/fontawesome-free/css/all.min.css">
@@ -39,15 +39,15 @@ session_start();
                 </div>
                 <hr>
                 <br>
-                <form class="needs-validation" method="POST" action="../action/admin_verify.php" novalidate>
+                <form class="needs-validation" method="POST" action="../action/employee_verify.php" novalidate>
                     <div class="mb-4 mt-5">
                         <label for="email" class="form-label text-white">Email address:</label>
                         <input type="email" id="email"  class="form-control rounded-0 p-2" placeholder="Search by email" name="email" required>
                     </div>  
-                    <button type="submit" name="submit" class="btn btn-success w-100 rounded-0">Submit</button> 
+                    <button type="submit" name="submit" class="btn btn-warning text-white w-100 rounded-0">Submit</button> 
                     <div class="go_back">
-                    <a href="admin_login.php"><i class="fas fa-arrow-left"></i> Go back</a>
-                    </div>  
+                    <a href="employee_login.php"><i class="fas fa-arrow-left"></i> Go back</a>
+                    </div>    
                 </form>
             </div>
         </div>

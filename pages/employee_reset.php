@@ -12,17 +12,20 @@ session_start();
     <meta name="author" content="EVSU-OC STUDENTS">
     <title>PhilHealth System</title>
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
+    <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="../css/employee.css">
-    <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.min.css">
 
     <!-- FontawesomeIcon online -->
     <link rel="stylesheet" href="../vendors/fontawesome-free/css/all.min.css">
 
+    <!-- BOOTSTRAP 5 -->
+    <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.min.css">
     <script src="../bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- SWEETALERT2 -->
     <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
     <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+
 
   <script type="text/javascript">
     function preventBack() {
@@ -42,16 +45,16 @@ session_start();
             <div class="form-container">
                 <div class="my_title">
                     <h1>
-                        employee signup
+                        reset password
                     </h1>
                 </div>
-                <form class="needs-validation" method="POST" action="../action/employee_insert.php" novalidate">
+                <form class="needs-validation" method="POST" action="../action/employee_update.php" novalidate">
                 <?php
                 // Connect to the database
                 require_once('../database/db_conn.php');
                 // Get the user information from the database using the ID number
                 $email = $_SESSION['email'];
-                $query = "SELECT firstname, middlename, lastname, email FROM tbl_employee WHERE email = '$email'";
+                $query = "SELECT email FROM registered_employee WHERE email = '$email'";
                 $result = mysqli_query($conn, $query);
                     // Check if the query was successful
                 if (!$result) {
@@ -61,28 +64,14 @@ session_start();
                 $row = mysqli_fetch_assoc($result);
                 ?>
                     <div class="row">
-                    <div class="col-6 mt-2">
-                        <label for="text" class="form-label text-white">First name:</label>
-                        <input type="text" id="text" class="form-control rounded-0 p-20" name="firstname" value="<?php echo $row['firstname']; ?>" readonly>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label for="text" class="form-label text-white">Last name:</label>
-                        <input type="text" class="form-control rounded-0 p-2" name="middlename" value="<?php echo $row['middlename']; ?>"  readonly>
-                    </div>
-                    <div class="col-6 mt-2">
-                        <label for="text" class="form-label text-white">Middle name:</label>
-                        <input type="text" class="form-control rounded-0 p-2" name="lastname" value="<?php echo $row['lastname']; ?>" readonly>
-                    </div>
-                    <div class="col-6 mt-2">
+                    <div class="col-12 mt-3">
                         <label for="email" class="form-label text-white">Email:</label>
                         <input type="email" id="email" class="form-control rounded-0 p-2" name="email" value="<?php echo $row['email']; ?>"  readonly>
                     </div>
-                    <div class="col-12 mt-3">
-                        <input type="text" id="username" class="form-control rounded-0 p-2" name="username" placeholder="Enter your username" required>
-                    </div>
-                    <div class="mt-3">
+                    <div class="mt-1">
+                    <label for="email" class="form-label text-white">New Password:</label>
                         <div class="input-group">
-                            <input class="form-control rounded-0 p-2" type="password" oninput="confirmValidation()" name="password" placeholder="Enter password" id="password" required="true"  required>
+                            <input class="form-control rounded-0 p-2 mb-2" type="password" oninput="confirmValidation()" name="password" placeholder="Enter new password" id="password" required="true"  required>
                             <div class="input-group-append">
                                 <span class="input-group-text rounded-0" id="eye" onclick="password_show_hide();">
                                 <i class="fa fa-eye" id="show_eye"></i>
@@ -90,9 +79,10 @@ session_start();
                                 </span>
                             </div>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-1">
+                        <label for="email" class="form-label text-white">Re-Type Password:</label>
                         <div class="input-group">
-                            <input class="form-control rounded-0 p-2" type="password" oninput="confirmValidation()" name="confirm-password" placeholder="Confirm password" id="confirm-password" required="true" required>
+                            <input class="form-control rounded-0 p-2 mb-2" type="password" oninput="confirmValidation()" name="confirm-password" placeholder="Confirm new password" id="confirm-password" required="true" required>
                             <div class="input-group-append">
                                 <span class="input-group-text rounded-0" id="eye" onclick="confirm_password_show_hide();">
                                 <i class="fa fa-eye" id="show_eye_confirm"></i>
@@ -101,7 +91,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    <button type="submit" name="submit" id="btn" class="btn btn-warning text-white w-100 rounded-0 mt-4">Signup</button>
+                    <button type="submit" name="submit" id="btn" class="btn btn-warning text-white w-100 rounded-0 mt-4">Submit</button>
 
                     </div>
                 </div>
@@ -111,53 +101,37 @@ session_start();
     </main>
 
     <!-- Validation -->
-    <script src="js/form-validation.js"></script>
+    <script src="../js/form-validation.js"></script>
    
-  <?php
-  if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'successful') {
-  ?>
-    <script>
-      Swal.fire({
-        icon: 'success',
-        title: 'Verified ',
-        text: 'Your Employee account is verified!'
-      })
-    </script>
-  <?php
-    unset($_SESSION['validate']);
-  }
-  ?>
+<?php
+if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'successful') {
+?>
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Verified ',
+      text: 'Your request is verified!'
+    })
+  </script>
+<?php
+  unset($_SESSION['validate']);
+}
+?>
 
 <?php
-  if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'unsuccessful') {
-  ?>
-    <script>
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'There is an error, Please try again!'
-      })
-    </script>
-  <?php
-    unset($_SESSION['validate']);
-  }
-  ?>
-
-
+if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'error') {
+?>
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'error',
+      text: 'Something went wrong!'
+    })
+  </script>
 <?php
-  if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'existed') {
-  ?>
-    <script>
-      Swal.fire({
-        icon: 'error',
-        title: 'Existed ',
-        text: 'User is already existed please check your information!'
-      })
-    </script>
-  <?php
-    unset($_SESSION['validate']);
-  }
-  ?>
+  unset($_SESSION['validate']);
+}
+?>
 
     <script>
     function password_show_hide() {

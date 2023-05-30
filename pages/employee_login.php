@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+
+    session_start();
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,7 +52,7 @@
                     </div>
                     <button type="submit" class="btn btn-warning text-white fw-bold w-100 rounded-0">LOGIN</button>
                     <div class="for_container">
-                        <a href="#">Forgot password ?</a>
+                        <a href="employee_forgot.php">Forgot password ?</a>
                     </div>
                     <div class="reg_for_container"><p>No account?</p>
                         <a href="employee_confirm.php">Register</a>
@@ -63,6 +67,53 @@
             </div>
         </div>
     </main>
+    <script src="../js/form-validation.js"></script>
+
+    <?php
+    if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'inserted') {
+      ?>
+          <script>
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: ' You successfuly registered!'
+              })
+          </script>
+      <?php
+          unset($_SESSION['validate']);
+      }
+?>
+
+<?php
+  if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'unsuccessful') {
+  ?>
+    <script>
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid input ',
+        text: 'Please check your information!',
+      })
+    </script>
+  <?php
+    unset($_SESSION['validate']);
+  }
+  ?>
+
+<?php
+    if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'successful') {
+    ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Updated',
+                text: ' Your password successully updated!'
+            })
+        </script>
+    <?php
+        unset($_SESSION['validate']);
+    }
+    ?>
+
     <script>
     function password_show_hide() {
       var x = document.getElementById("password");

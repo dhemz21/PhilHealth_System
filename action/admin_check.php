@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
     // MYSQLI QUERY
-    // PREPARE A STATEMENT TO SELECT THE DATA FROM THE REGISTERED_USERS TABLE
+    // PREPARE A STATEMENT TO SELECT THE DATA FROM THE REGISTERED_ADMIN TABLE
     $stmt = $conn->prepare("SELECT * FROM registered_admin WHERE username=?");
 
     // BIND THE PARAMETER "s" TO THE VARIABLE $username
@@ -28,8 +28,7 @@ if(isset($_POST['submit'])){
     if($result->num_rows >= 1){
         // IF THERE ARE ONE OR MORE ROWS RETURNED, ENTER THE WHILE LOOP
         while($getData = $result->fetch_array()){
-
-       
+            
                 // Check if the password is correct
                 if (password_verify($password, $getData['password'])) {
                     // REGENERATE THE SESSION ID

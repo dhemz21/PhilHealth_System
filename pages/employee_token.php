@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-session_start();
-
-?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +8,7 @@ session_start();
     <title>PhilHealth System</title>
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/employee.css">
 
     <!-- FontawesomeIcon online -->
     <link rel="stylesheet" href="../vendors/fontawesome-free/css/all.min.css">
@@ -27,6 +23,10 @@ session_start();
 
 </head>
 
+<?php
+session_start();
+
+?>
 <body>
     <main class="main-wrapper">
         <div class="main_container">
@@ -34,20 +34,21 @@ session_start();
             <div class="form-container">
                 <div class="my_title">
                     <h1>
-                        Email Recovery
+                        OTP Confirmation
                     </h1>
                 </div>
                 <hr>
                 <br>
-                <form class="needs-validation" method="POST" action="../action/admin_verify.php" novalidate>
+                <form class="needs-validation" method="POST" action="../action/verify_token2.php" novalidate>
+                <input type="hidden" name="email" class="input form-control rounded-0">
                     <div class="mb-4 mt-5">
-                        <label for="email" class="form-label text-white">Email address:</label>
-                        <input type="email" id="email"  class="form-control rounded-0 p-2" placeholder="Search by email" name="email" required>
+                        <label for="text" class="form-label text-white">OTP:</label>
+                        <input type="text" id="text" class="form-control rounded-0 p-2" name="otp" placeholder="Confirm your OTP" required>
                     </div>  
-                    <button type="submit" name="submit" class="btn btn-success w-100 rounded-0">Submit</button> 
+                    <button type="submit" name="submit" class="btn btn-warning text-white w-100 rounded-0">Submit</button>    
                     <div class="go_back">
-                    <a href="admin_login.php"><i class="fas fa-arrow-left"></i> Go back</a>
-                    </div>  
+                    <a href="employee_forgot.php"><i class="fas fa-arrow-left"></i> Go back</a>
+                    </div> 
                 </form>
             </div>
         </div>
@@ -55,14 +56,29 @@ session_start();
     <script src="../js/form-validation.js"></script>
 
 
-<?php
+    <?php
+  if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'successful') {
+  ?>
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Verified ',
+        text: 'Your OTP reset code has been sent!'
+      })
+    </script>
+  <?php
+    unset($_SESSION['validate']);
+  }
+  ?>
+
+  <?php
   if (isset($_SESSION['validate']) && $_SESSION['validate'] == 'unsuccessful') {
   ?>
     <script>
       Swal.fire({
         icon: 'error',
-        title: "Error",
-        text: ' Email not exist, Please check your information!',
+        title: 'Error',
+        text:'Invalid OTP, Please check your OTP code'
       })
     </script>
   <?php
@@ -70,6 +86,7 @@ session_start();
   }
   ?>
 </body>
+
 
 </body>
 

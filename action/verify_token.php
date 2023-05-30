@@ -4,7 +4,6 @@ session_start();
 // DATABASE CONNECTION
 require_once('../database/db_conn.php');
 
-
 if (isset($_POST['submit'])) {
 
     $email = $_POST['email'];
@@ -19,7 +18,7 @@ if (isset($_POST['submit'])) {
         $email = $row['email'];
     }
 
-    // VALLIDATE THE DATA - IF THE USERID AND OTP IS MATCH 
+    // VALLIDATE THE DATA - IF THE USERID AND OTP IS MATCH AND EMAIL
     $validate = "SELECT * FROM reset_password_token WHERE reset_id ='$reset_id' && OTP ='$code' && email = '$email'";
     $result = mysqli_query($conn, $validate);
 

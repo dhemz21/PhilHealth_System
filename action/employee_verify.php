@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $mail = $_POST['email'];
 
     // RETRIEVE THE EMAIL ADDRESS FOR THE GIVEN SPECIFIC EMAIL
-    $validate = "SELECT * FROM registered_admin WHERE email ='$mail' AND type = 'ADMIN' LIMIT 1";
+    $validate = "SELECT * FROM registered_employee WHERE email ='$mail' AND type = 'EMPLOYEE' LIMIT 1";
     $result = mysqli_query($conn, $validate);
 
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
         $OTP_code = random_int(111111, 999999);
 
         // GETTING THE USER INFORMATION BEFORE SENDING THE OTP CODE
-        $data = $conn->query("SELECT * FROM registered_admin WHERE email='$mail'");
+        $data = $conn->query("SELECT * FROM registered_employee WHERE email='$mail'");
         while ($current = $data->fetch_assoc()) {
             // GET THE SPECIFIC ROW FROM THE TABLE REGISTERED ADMIN
             $user = $current['firstname'];
@@ -50,16 +50,18 @@ if (isset($_POST['submit'])) {
         if (mysqli_query($conn, $sql)) {
             // IT WILL GO TO THIS FOLDER
             $_SESSION['validate'] = "successful";
-            header("location: ../pages/admin_token.php");
+            header("location: ../pages/employee_token.php");
             exit(); // Stop further PHP execution
 
         } else {
             $_SESSION['validate'] = "unsuccessful";
+            header("location: ../pages/employee_forgot.php");
+            exit(); // Stop further PHP execution
         }
     } else {
 
         $_SESSION['validate'] = "unsuccessful";
-        header("location: ../pages/admin_forgot.php");
+        header("location: ../pages/employee_forgot.php");
         exit(); // Stop further PHP execution
 
     }

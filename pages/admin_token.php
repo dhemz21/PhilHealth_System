@@ -46,14 +46,14 @@ session_start();
                         <input type="text" id="text" class="form-control rounded-0 p-2" name="otp" placeholder="Confirm your OTP" required>
                     </div>  
                     <button type="submit" name="submit" class="btn btn-success w-100 rounded-0">Submit</button>    
-                    <div class="col-12 mt-4">
-                <p class="text-start"><a href="admin_forgot.php" class="text-decoration-none"><i class="fas fa-arrow-left"></i> Go Back</a> </p>
-                </div>  
+                    <div class="go_back">
+                    <a href="admin_forgot.php"><i class="fas fa-arrow-left"></i> Go back</a>
+                    </div> 
                 </form>
             </div>
         </div>
     </main>
-    <script src="js/form-validation.js"></script>
+    <script src="../js/form-validation.js"></script>
 
 
     <?php

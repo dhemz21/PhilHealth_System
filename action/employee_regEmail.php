@@ -17,14 +17,13 @@ if (isset($_POST['submit'])) {
     $count = mysqli_num_rows($result);
 
      if ($row) {
-    // GETTING THE SPECIFIC ROW FROM THE TBL_EMPLOYEE WHICH IS THE USER_ID AND INSERT TO TABLE REGISTERED_ID
-
+    // GETTING THE SPECIFIC ROW FROM THE TBL_EMPLOYEE WHICH IS THE EMPLOYEE_ID AND INSERT TO TABLE REGISTERED_ID
     $reg_id = $row['employee_id'];
     $email = $row['email'];
-
    } else {
        echo "error";
    }
+
     // IF STATEMENT 
     if ($count == 1) {
 
@@ -38,8 +37,7 @@ if (isset($_POST['submit'])) {
             $user = $current['firstname'];
             $email = $current['email'];
         }
-
-        // THE DATA FROM TBL_ADMIN WILL STORE TO REGISTERED_ID TABLE
+        // THE DATA FROM TBL_EMPLOYEE WILL STORE TO REGISTERED_ID TABLE
         $sql = "INSERT INTO registered_id (Registered_ID, email, OTP, type)VALUES ('$reg_id', '$email', '$OTP_code', 'EMPLOYEE')";
 
         //IT WILL PROCESS AND AFTER IT SEND THE OTP 
